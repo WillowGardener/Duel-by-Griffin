@@ -19,4 +19,10 @@ describe Player do
     expect(wayne.life).to eq(32)
   end
 
+  it "uses the parry technique" do
+    batman = Player.new({:attack => 8, :armor => 4, :life => 40, :mana => 8})
+    batman.parry
+    expect(batman.attack).to eq (10)
+  end
+
 end
