@@ -6,6 +6,13 @@ class Player
     @armor = attributes[:armor]
     @life = attributes[:life]
     @mana = attributes[:mana]
+    @parry_counter = 0
+  end
+
+  def zero_damage?
+    if @damage < 0
+      @damage = 0
+    end
   end
 
   def parry
@@ -14,31 +21,37 @@ class Player
   end
 
   def parry_up
-    if parry_counter == 1
-      Player.armor += 50
+    if @parry_counter == 1
+      @armor += 50
     end
   end
 
   def parry_down
-    if parry_counter == 1
-      Player.armor -= 50
+    if @parry_counter == 1
+      @armor -= 50
       @parry_counter = 0
     end
   end
 
-  def get_blown(enemy_attack)
-    # Player.parry_up
-    @life = @life - (enemy_attack + 4 - self.armor)
-    # Player.parry_down
-  end
-
-
   def get_struck(enemy_attack)
-    # Player.parry_up
-    @life = @life - ((enemy_attack/2) + 4 - self.armor)
-    # Player.parry_down
-    @life = @life - ((enemy_attack/2) + 4 - self.armor)
+    self.parry_up
+    @damage = ((enemy_attack/2) + 4 - self.armor)
+    zero_damage?
+    @life = @life - @damage
+    self.parry_down
+    @damage = ((enemy_attack/2) + 4 - self.armor)
+    zero_damage?
+    @life = @life - @damage
   end
+
+  def get_blown(enemy_attack)
+    self.parry_up
+    @damage = (enemy_attack + 4 - self.armor)
+    zero_damage?
+    @life = @life - @damage
+    self.parry_down
+  end
+
 
 
 

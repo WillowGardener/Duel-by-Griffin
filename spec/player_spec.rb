@@ -22,7 +22,9 @@ describe Player do
   it "uses the parry technique" do
     batman = Player.new({:attack => 8, :armor => 4, :life => 40, :mana => 8})
     batman.parry
+    batman.get_blown(8)
     expect(batman.attack).to eq (10)
+    expect(batman.life).to eq (40)
   end
 
 end
