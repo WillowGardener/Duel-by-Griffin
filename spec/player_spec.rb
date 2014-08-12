@@ -27,4 +27,11 @@ describe Player do
     expect(batman.life).to eq (40)
   end
 
+  it "uses the block technique" do
+    robin = Player.new({:attack => 8, :armor => 4, :life => 40, :mana => 8})
+    robin.block
+    robin.get_struck(8)
+    expect(robin.life).to eq (41)
+  end
+
 end
