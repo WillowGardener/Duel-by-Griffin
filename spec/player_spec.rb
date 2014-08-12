@@ -15,7 +15,7 @@ describe Player do
 
   it "uses the 'quick strike' technique" do
     wayne = Player.new({:attack => 8, :armor => 4, :life => 40, :mana => 8})
-    wayne.get_struck
+    wayne.get_struck(8)
     expect(wayne.life).to eq(32)
   end
 
