@@ -8,4 +8,8 @@ class Player
     @mana = attributes[:mana]
   end
 
+  def get_blown(enemy_attack)
+    @life = @life - (enemy_attack + 4 - self.armor)
+  end
+
 end
