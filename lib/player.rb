@@ -49,6 +49,15 @@ class Player
     @life = @life - @damage
     self.parry_down
     @damage = ((enemy_attack) - self.armor)
+    @life = @life - @damage
+  end
+
+  def get_struck(enemy_attack)
+    @damage = ((enemy_attack/2) + 4 - self.armor)
+    zero_damage?
+    @life = @life - @damage
+    self.parry_down
+    @damage = ((enemy_attack/2) + 4 - self.armor)
     zero_damage?
     @life = @life - @damage
     self.block_down
