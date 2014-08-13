@@ -1,4 +1,5 @@
 require './lib/player'
+require 'io/console'
 
 def duel
   @player_1 = Player.new({:attack => 8, :armor => 4, :life => 20, :mana => 8})
@@ -88,7 +89,7 @@ def duel
   elsif @player_2.life < 1 && @player_1.life > 0
     puts "\nMaidens and mothers alike shall weep for the blood spilled this day, for Player 2 has been slain in the course of this feud! But can we truly call Player 1 the victor? For what can we say this warrior has won, but a lifetime of guilty nightmares?\n"
   elsif @player_1.life < 1 && @player_2.life < 1
-    puts "What crueler fate could the Gods bestow upon our would-be heroes? Each has fallen upon the other's blade, and none shall walk from the field of battle but ghosts who have shrugged off their earthly burden."
+    puts "\nWhat crueler fate could the Gods bestow upon our would-be heroes? Each has fallen upon the other's blade, and none shall walk from the field of battle but ghosts who have shrugged off their earthly burden.\n"
   end
 
 end
@@ -101,7 +102,7 @@ def p1_turn
   puts "\n\n Make your move, Player 1: pick a number"
   puts "1)Heavy Blow       3)Block"
   puts "2)Quick Strike     4)Parry"
-  @p1_input = gets.chomp.to_i
+  @p1_input = STDIN.noecho(&:gets).chomp.to_i
 end
 
 def p2_turn
@@ -113,7 +114,7 @@ def p2_turn
     puts "\n\n Make your move, Player 2: pick a number"
     puts "1)Heavy Blow       3)Block"
     puts "2)Quick Strike     4)Parry"
-    @p2_input = gets.chomp.to_i
+    @p2_input = STDIN.noecho(&:gets).chomp.to_i
   elsif @p2_identity == "computer"
     @p2_input = rand(3) + 1
   end
