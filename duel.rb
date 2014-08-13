@@ -86,7 +86,7 @@ def duel
   if @player_1.life < 1 && @player_2.life > 0
     puts "\nPlayer 1 has been slain in the course of this duel! But in delivering this cruel fate, can we truly claim that Player 2 has won? The confounding nature of such bitter conflict shall continue to plague us, for lo, this is the fate of man, to war and to woe for so long as he inhabits this bitter earth.\n"
   elsif @player_2.life < 1 && @player_1.life > 0
-    puts "\nMaidens and mothers alike shall weep for the blood spilled this day, for Player 2 has been slain in the course of this feud! But can we truly call Player 1 the victor? For what can we say this warrior has won but a lifetime of guilty nightmares.\n"
+    puts "\nMaidens and mothers alike shall weep for the blood spilled this day, for Player 2 has been slain in the course of this feud! But can we truly call Player 1 the victor? For what can we say this warrior has won, but a lifetime of guilty nightmares?\n"
   elsif @player_1.life < 1 && @player_2.life < 1
     puts "What crueler fate could the Gods bestow upon our would-be heroes? Each has fallen upon the other's blade, and none shall walk from the field of battle but ghosts who have shrugged off their earthly burden."
   end
